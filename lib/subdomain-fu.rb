@@ -83,7 +83,7 @@ module SubdomainFu
 
   def self.host_without_subdomain(host)
     parts = host.split('.')
-    parts[-(SubdomainFu.config.tld_size+1)..-1].join(".")
+    parts[-(SubdomainFu.config.tld_size+1)..-1] ? parts[-(SubdomainFu.config.tld_size+1)..-1].join(".") : parts
   end
 
   # Rewrites the subdomain of the host unless they are equivalent (i.e. mirrors of each other)
